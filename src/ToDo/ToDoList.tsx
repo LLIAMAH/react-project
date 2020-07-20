@@ -3,12 +3,12 @@ import './ToDoList.css';
 import ToDoListItem from "./ToDoListItem/ToDoListItem";
 import {Task} from "../Classes";
 
-export default function ToDoList(props: Array<Task>) {
+export default function ToDoList(props: { todos: Array<Task> }) {
 
     return (
         <ul className="ul">
-            {props.map((todo, index) => {
-                return <ToDoListItem Id={todo.Id} Title={todo.Title} Completed={todo.Completed} key={todo.Id} />
+            {props.todos.map((todo, index) => {
+                return <ToDoListItem todo={todo} index={index}/>
             })}
         </ul>
     );
